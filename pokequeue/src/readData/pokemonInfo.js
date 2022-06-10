@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 // Reading our file that contains the json object
 
 const jsonData= require('./PokeData.json');
+// Set the size of the pokedex
+const size = 242;
 
-
+// Testing func to see what is in the json object
 export const Data = () => {
   console.log(jsonData);
 }
 
-export const Poke = (props) =>{
+// Display the information on one pokemon
+export const Pokemon_Card = (props) =>{
   const pokemon = props.pokeNum -1;
   return (
     <div>
@@ -19,6 +22,24 @@ export const Poke = (props) =>{
     <p>{jsonData["Location"][pokemon]}</p>
     </div>
   )
+}
+//Display information on all the pokemon
+export const Pokedex = () =>{
+const p = [];
+  for ( let i = 0 ; i < size ; i++)
+  {
+  p.push(
+    <div>
+    <h1>{jsonData["dex number"][i]}      {jsonData["pokemon"][i]}</h1>
+    <img src={jsonData["picture location "][i]}/>
+    <form>
+      <label>Add to Queue</label>
+      <input type="checkbox" />
+    </form>
+    </div>
+  )
+  }
+  return p;
 }
 
 export default Data;
