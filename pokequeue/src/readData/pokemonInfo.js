@@ -23,7 +23,21 @@ export const Pokemon_Card = (props) =>{
     </div>
   )
 }
-//Display information on all the pokemon
+
+export const Pokemon_Card2 = (props) =>{
+  const pokemon = props.pokeNum -1;
+  return (
+    <div className="card" style={{width: "18rem"}}>
+      <img className="card-img-top" src={jsonData["picture location "][pokemon]} alt={jsonData["pokemon"][pokemon]} />
+      <div className="card-body">
+        <h5 className="card-title"> {jsonData["dex number"][pokemon]}  {jsonData["pokemon"][pokemon]}</h5>
+        <p className="card-text">{jsonData["Location"][pokemon]}</p>
+        <a href="#" className="btn btn-primary">add</a>
+      </div>
+      </div>
+  )
+}
+
 export const Pokedex = () =>{
 const p = [];
   for ( let i = 0 ; i < size ; i++)
@@ -41,7 +55,5 @@ const p = [];
   }
   return p;
 }
-
-export default Data;
-// Purpose of this class is to read a CSV File and return the data for the applic0atation
-//The goal is to save this as a json appplication
+//
+// export default Data;
